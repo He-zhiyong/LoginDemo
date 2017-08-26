@@ -1,7 +1,10 @@
 // eslint-disable-next-line
 import React, { Component } from 'react';
 import '../styles/antd.css';
+import '../styles/style.css';
 import { Button } from 'antd';
+import { Form  } from 'antd';
+import { FormItem  } from 'antd';
 import { Input } from 'antd';
 
 class TodoListApp extends React.Component {
@@ -14,13 +17,17 @@ class TodoListApp extends React.Component {
   
     render() {
       return (
-        <div>
-          <h3>ToDoList</h3>
-          <form onSubmit={this.handleSubmit}>
-            <Input placeholder="default size" onChange={this.handleChange} value={this.state.text}/>
-            <Button type="primary" onClick={this.handleSubmit}>{'Add #' + (this.state.items.length + 1)}</Button>
-          </form>
-          <TodoList items={this.state.items} />
+        <div className="toDoList">
+          <div className="panel">
+            <h2 className="title">To Do List</h2>
+            <Form onSubmit={this.handleSubmit}>
+              <FormItem>
+                <Input placeholder="to do..." onChange={this.handleChange} value={this.state.text}/>
+                <Button type="primary" onClick={this.handleSubmit}>{'Add #' + (this.state.items.length + 1)}</Button>
+              </FormItem>
+            </Form>
+            <TodoList items={this.state.items} />
+          </div>
         </div>
       );
     }
@@ -35,7 +42,6 @@ class TodoListApp extends React.Component {
         text: this.state.text,
         id: Date.now()
       };
-      console.log(newItem)
       this.setState((prevState) => ({
         items: prevState.items.concat(newItem),
         text: ''
