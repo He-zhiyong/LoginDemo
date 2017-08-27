@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './config/registerServiceWorker';
-//import App from './components/App';
-import TodoListApp from './components/TodoListApp';
+import registerServiceWorker from './server/registerServiceWorker';
+import Login from './common/pages/Login';
 
-ReactDOM.render(<TodoListApp/>, document.getElementById('root'));
+ReactDOM.render(<Login/>, document.getElementById('root'));
 registerServiceWorker();
