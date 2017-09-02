@@ -1,10 +1,9 @@
 import React from 'react';
-import '../styles/antd.css';
-import '../styles/login.css';
+import '../styles/login.less';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
-class NormalLoginForm extends React.Component {
+class NormalRegisterForm extends React.Component {
     handleSubmit = (e) => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
@@ -18,7 +17,7 @@ class NormalLoginForm extends React.Component {
       return (
         <div className="login-wrap">
           <div className="login-logo">
-            <h2 className="login-title">Login Demo</h2>
+            <h2 className="login-title">Register Demo</h2>
           </div>
           <Form onSubmit={this.handleSubmit} className="login-form">
             <FormItem>
@@ -55,6 +54,6 @@ class NormalLoginForm extends React.Component {
     }
 }
   
-const Register = Form.create()(NormalLoginForm);
+const Register = Form.create()(NormalRegisterForm);
 
 export default Register;
